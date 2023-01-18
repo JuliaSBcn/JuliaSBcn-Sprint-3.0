@@ -86,13 +86,20 @@ function buy(id) {
 }
 
 // Exercise 2
-function cleanCart() {
+function cleanCart(cartList) {
+cartList.splice(0,cart.length);
 
 }
 
 // Exercise 3
-function calculateTotal() {
+function calculateTotal(cartList) {
     // Calculate total price of the cart using the "cartList" array
+    let total=0;
+    for ( let i=0; i<cart.length;i++){
+        total+=cartList[i].price;
+    }
+    return total;
+    console.log(total);
 }
 
 // Exercise 4
