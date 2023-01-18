@@ -1,5 +1,5 @@
 // If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
-let products = [
+/*let products = [
    {
         id: 1,
         name: 'cooking oil',
@@ -62,14 +62,14 @@ let products = [
         price: 9.99,
         type: 'clothes'
     }
-]
+]*/
 // Array with products (objects) added directly with push(). Products in this array are repeated.
-var cartList = [];
+let cartList = [];
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
-var cart = [];
+let cart = [];
 
-var total = 0;
+let total = 0;
 
 // Exercise 1
 function buy(id) {
