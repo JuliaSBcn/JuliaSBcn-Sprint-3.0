@@ -75,14 +75,15 @@ let total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
-    for(let i=0; i< products.length;i++){
-        if(product[i].id==id){
-            cartList.push(products[i]);
+    let i = 0, productChosen, found = false;
+    while (i < products.length && found == false) {
 
-        }
+            if (products[i].id == id) {
+                productChosen = products[i];
+                found = true;
+            }
+        i++;
     }
-
-    return cartList;
 }
 
 // Exercise 2
