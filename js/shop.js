@@ -43,20 +43,23 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
 cartList.length=0;
-console.table(cartList);
+counter=0;
+document.getElementById("count_product").innerHTML=counter;
+generateCart();
+printCart();
 
 }
 
 // Exercise 3
 function calculateTotal(cartList) {
     // Calculate total price of the cart using the "cartList" array
-   let i,price = 0,total,totalPrice = 0;
+   let i,price = 0,totalPrice = 0;
    for(i=0;i < cartList.length;i++){
 
     price = cartList[i].price;
-    totalPrice +=price;
+    totalPrice += price;
    } 
-  console.log(totalPrice);
+ 
 }
 
 
@@ -71,27 +74,28 @@ function generateCart() {
 
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+   
+    cart.length = 0;
     let i, cartListItem, cartItem;
-    for (i = 0; i < cartList.length; i++) {
-
-            cartListItem = cartList[i];
-            cartItem = cart.find(element => element.id === cartListItem.id);
-
-            if (cartItem == undefined) {
-                cartListItem.quantity = 1;
-                    cartListItem.subTotal = cartListItem.price * cartListItem.quantity;
-                    cartListItem.subTotalWithDiscount = "not available";
-                    cart.push(cartListItem);
-
-            } else {
-                cartItem.quantity += 1;
-                    cartItem.subTotal = cartItem.price * cartItem.quantity;
-                    cartItem.subTotalWithDiscount = "not available";
-            }
-        
-    }
+  for (i = 0; i < cartList.length; i++) {
+    cartListItem = cartList[i];
+      cartItem = cart.find(element => element.id === cartListItem.id);
+      if (cartItem == undefined){
+        cart.push(cartListItem);
+          cartListItem = cart[cart.length-1];
+          cartListItem.quantity = 1;
+          cartListItem.subTotal = cartListItem.price * cartListItem.quantity;
+      
+          cartListItem.subTotalWithDiscount = "not available";
+      }else{
+        cartItem.quantity += 1;
+          cartItem.subTotal = cartItem.price * cartItem.quantity;
+          
+          cartItem.subTotalWithDiscount = "not available";
+      }
+}
 applyPromotionsCart();
-   console.table(cart);
+
 }
 
 // Exercise 5
