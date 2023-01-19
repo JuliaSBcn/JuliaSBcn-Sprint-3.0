@@ -91,8 +91,9 @@ function buy(id) {
 }
 
 // Exercise 2
-function cleanCart(cartList) {
-cartList.splice(0,cart.length);
+function cleanCart() {
+cartList.length=0;
+//console.table(cartList);
 
 }
 
