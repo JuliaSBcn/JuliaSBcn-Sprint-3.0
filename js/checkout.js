@@ -1,14 +1,14 @@
 
-// Exercise 6
+// Exercise 7
 function validate() {
-	var error = 0;
+	let error = 0;
 	// Get the input fields
-	var fName = document.getElementById("fName");
-	var fEmail = document.getElementById("fEmail");
+	let fName = document.getElementById("fName");
+	let fEmail = document.getElementById("fEmail");
 
 	// Get the error elements
-	var errorName = document.getElementById("errorName");
-	var errorEmail = document.getElementById("errorEmail");  
+	let errorName = document.getElementById("errorName");
+	let errorEmail = document.getElementById("errorEmail");  
 	
 	// Validate fields entered by the user: name, phone, password, and email
 	if(fName.value == ""){
