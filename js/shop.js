@@ -107,16 +107,16 @@ function applyPromotionsCart() {
 
         cartItem = cart[i];
 
-        if (cartItem.id == 1 && cartItem.quantity >= 3 ) {
-                cartItem.subTotalWithDiscount = Number((10 * cartItem.quantity).toFixed(2));
+        if (cartItem.id == 1 && cartItem.quantity >= cartItem.offer.number ) {
+                cartItem.subTotalWithDiscount = Number((cartItem.subTotal - cartItem.subTotal* cartItem.offer.percent/100).toFixed(2));
         }
 
-        if (cartItem.id == 3 && cartItem.quantity >= 10 ) {
-                cartItem.subTotalWithDiscount = Number((2/3 * cartItem.price * cartItem.quantity).toFixed(2));
+        if (cartItem.id == 3 && cartItem.quantity >= cartItem.offer.number ) {
+                cartItem.subTotalWithDiscount = Number((cartItem.subTotal -cartItem.subTotal * cartItem.offer.percent/100).toFixed(2));
         }
     }
 
-    console.table(cart);
+    //console.table(cart);
 }
 
 // Exercise 6
