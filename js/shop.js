@@ -8,6 +8,8 @@ let cartList = [];
 let cart = [];
 
 let total = 0;
+let counter=0;
+
 
 // Exercise 1
 function buy(id) {
@@ -106,6 +108,27 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+    let i, list = "", cartItem, cartTotal = 0;
+  for (i = 0; i < cart.length; i++) {
+
+    cartItem = cart[i];
+
+    list += "<tr>";
+    list += "<th scope='row'>" +cartItem.name+ "</th>";
+    list += "<td>" +cartItem.price+ "</td>";
+    list += "<td>" +cartItem.quantity+ "</td>";
+    if (cartItem.subTotalWithDiscount == "not available") {
+      list += "<td>" +cartItem.subTotal+ "</td>";
+      cartTotal += cartItem.subTotal;
+    }else{
+      list += "<td>" +cartItem.subTotalWithDiscount+ "</td>";
+      cartTotal += cartItem.subTotalWithDiscount;
+    }
+    list +="</tr>";
+
+  }
+  document.getElementById("cart_list").innerHTML = list;
+  document.getElementById("total_price").innerHTML = cartTotal.toFixed(2);
 }
 
 
