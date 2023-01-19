@@ -84,6 +84,10 @@ function buy(id) {
             }
         i++;
     }
+
+    if (found == true) cartList.push(productChosen);
+
+    //console.table(cartList);
 }
 
 // Exercise 2
