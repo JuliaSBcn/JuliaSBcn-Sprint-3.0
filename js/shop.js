@@ -1,68 +1,6 @@
-// If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
-/*let products = [
-   {
-        id: 1,
-        name: 'cooking oil',
-        price: 10.5,
-        type: 'grocery',
-        offer: {
-            number: 3,
-            percent: 20
-        }
-    },
-    {
-        id: 2,
-        name: 'Pasta',
-        price: 6.25,
-        type: 'grocery'
-    },
-    {
-        id: 3,
-        name: 'Instant cupcake mixture',
-        price: 5,
-        type: 'grocery',
-        offer: {
-            number: 10,
-            percent: 30
-        }
-    },
-    {
-        id: 4,
-        name: 'All-in-one',
-        price: 260,
-        type: 'beauty'
-    },
-    {
-        id: 5,
-        name: 'Zero Make-up Kit',
-        price: 20.5,
-        type: 'beauty'
-    },
-    {
-        id: 6,
-        name: 'Lip Tints',
-        price: 12.75,
-        type: 'beauty'
-    },
-    {
-        id: 7,
-        name: 'Lawn Dress',
-        price: 15,
-        type: 'clothes'
-    },
-    {
-        id: 8,
-        name: 'Lawn-Chiffon Combo',
-        price: 19.99,
-        type: 'clothes'
-    },
-    {
-        id: 9,
-        name: 'Toddler Frock',
-        price: 9.99,
-        type: 'clothes'
-    }
-]*/
+
+
+
 // Array with products (objects) added directly with push(). Products in this array are repeated.
 let cartList = [];
 
@@ -87,13 +25,13 @@ function buy(id) {
 
     if (found == true) cartList.push(productChosen);
 
-    //console.table(cartList);
+    console.table(cartList);
 }
 
 // Exercise 2
 function cleanCart() {
 cartList.length=0;
-//console.table(cartList);
+console.table(cartList);
 
 }
 
@@ -109,8 +47,16 @@ function calculateTotal(cartList) {
   console.log(totalPrice);
 }
 
+
+
+
+
+
+
+
 // Exercise 4
 function generateCart() {
+
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     let i, cartListItem, cartItem;
@@ -132,12 +78,29 @@ function generateCart() {
             }
         
     }
-   // console.table(cart);
+applyPromotionsCart();
+   console.table(cart);
 }
 
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+
+    let i, cartItem;
+    for(i = 0; i < cart.length; i++) {
+
+        cartItem = cart[i];
+
+        if (cartItem.id == 1 && cartItem.quantity >= 3 ) {
+                cartItem.subTotalWithDiscount = Number((10 * cartItem.quantity).toFixed(2));
+        }
+
+        if (cartItem.id == 3 && cartItem.quantity >= 10 ) {
+                cartItem.subTotalWithDiscount = Number((2/3 * cartItem.price * cartItem.quantity).toFixed(2));
+        }
+    }
+
+    console.table(cart);
 }
 
 // Exercise 6
