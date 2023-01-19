@@ -15,19 +15,29 @@ let counter=0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
-    let i = 0, productChosen, found = false;
-    while (i < products.length && found == false) {
+    let i , productChosen,product, found = false;
+    for(i =0;i<product.length; i++) {
 
-            if (products[i].id == id) {
-                productChosen = products[i];
+        product = products[i];
+      delete product.quantity;
+      delete product.subTotal;
+      delete product.subTotalWithDiscount;
+
+            if (product.id == id) {
+                productChosen = product;
                 found = true;
             }
-        i++;
+       
     }
 
-    if (found == true) cartList.push(productChosen);
+    if (found == true) {
 
-    console.table(cartList);
+        cartList.push(productChosen);
+        counter++;
+      }
+      document.getElementById("count_product").innerHTML = counter;
+
+   
 }
 
 // Exercise 2
