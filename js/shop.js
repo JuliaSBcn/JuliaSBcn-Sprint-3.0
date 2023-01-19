@@ -100,12 +100,13 @@ cartList.length=0;
 // Exercise 3
 function calculateTotal(cartList) {
     // Calculate total price of the cart using the "cartList" array
-    let total=0;
-    for ( let i=0; i<cart.length;i++){
-        total+=cartList[i].price;
-    }
-    return total;
-    console.log(total);
+   let i,price = 0,total,totalPrice = 0;
+   for(i=0;i < cartList.length;i++){
+
+    price = cartList[i].price;
+    totalPrice +=price;
+   } 
+  console.log(totalPrice);
 }
 
 // Exercise 4
