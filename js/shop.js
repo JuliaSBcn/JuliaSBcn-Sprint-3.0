@@ -162,7 +162,7 @@ function removeFromCart(id) {
 }
 
 function open_modal(){
-	console.log("Open Modal + Generate Cart");
+	console.log("Open Modal");
     generateCart();
 	printCart();
 }
